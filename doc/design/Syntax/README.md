@@ -1,7 +1,15 @@
 # Syntax
 
-## Directory Overview
+## Table of contents
+- [Syntax](#syntax)
+  - [Directory Overview](#directory-overview)
+    - [Definitions](#definitions)
+  - [General Syntax Notes](#general-syntax-notes)
+  - [Goals](#goals)
+    - [Non-Goals](#non-goals)
+  - [Possible Solutions](#possible-solutions)
 
+## Directory Overview
 Each ".mu" file in this directory demonstrates a different potential syntaxes.
 Additionally, there are some 'examples' from many other languages that would
 be effectively equivalant. The 'examples' will ignore their respective
@@ -67,6 +75,19 @@ They will each define the following:
                     - `f`: a function that maps `a` to `b`
                     - `x`: the functor itself
 
+## General Syntax Notes
+- Capitalization
+    - Tokens that must start with a lower-case letter:
+        - Collectively referred to as "Variables"
+        - Type variables (i.e. `a`, `b`)
+        - Functions (i.e. `elimChoice`)
+        - Variables/parameters
+    - Tokens that must start with an upper-case letter:
+        - Collectively referred to as "constructors"
+        - Type constructors (i.e. `String`, `Choice`, `List`, `Int`)
+        - Data constructors (i.e. `First`, `Empty`)
+    - Rational: Distinguishes constructors from variables in pattern matching
+
 ## Goals
 1. Whitespace insensitive
     - Absolute.
@@ -76,20 +97,20 @@ They will each define the following:
     - i.e. no `[a]` for a list type, no "do-notation"
 3. Purely Functional
 
-## Non-Goals
+### Non-Goals
 - Syntactic sugar (but maybe in the future)
     - Parameter patterns
-        - Unifying the parameters is cumbersome.
+        - Rational: Unifying the parameters is cumbersome.
 
 ## Possible Solutions
-- Option 1
-    - Rust-like
+- [Option 1](/doc/design/Syntax/Option1.mu)
+    - Primary inspiration: Rust
     - Goals met: 1, 3, 4, 3
     - Notes:
         - Looks convoluted and chaotic
             - Maybe its just the lack of syntax highlighting
-- Option 2
-    - Haskell-like
+- [Option 2](/doc/design/Syntax/Option2.mu)
+    - Primary inspiration: Haskell
     - Goals met: 1, 4, 3
     - Notes:
         - The inconsistency between datatype definitions and traits/functions
